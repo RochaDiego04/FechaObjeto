@@ -4,7 +4,7 @@ using namespace std;
 
 
 int main(){
-	Date a(1,30,22);
+	Date a(2,28,24);
 	if (a.evaluateValidDate() == true) {
 		a.displayDate();
 		cout << endl;
