@@ -31,6 +31,7 @@ public:
 		return *this;
 	}
 
+	bool evaluateValidDate();
 	int getDay();
 	void displayDate();
 	bool evaluateMonth();

@@ -4,14 +4,18 @@ using namespace std;
 
 
 int main(){
-	Date a(1,31,22);
-	cout << a.getDay() << endl;
-	++a;
-	cout << a.getDay() << endl;
-	a.displayDate();
-	++a;
-	cout << a.getDay() << endl;
-	a.displayDate();
+	Date a(1,30,22);
+	if (a.evaluateValidDate() == true) {
+		a.displayDate();
+		cout << endl;
+		++a;
+		a.displayDate();
+		cout << endl;
+		++a;
+		a.displayDate();
+		cout << endl;
+	}
+
 	return 0;
 }
 
