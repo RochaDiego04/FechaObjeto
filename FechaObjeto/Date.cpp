@@ -31,14 +31,28 @@ bool Date::evaluateValidDate() {
 		}
 		return false;
 	}
+	return false;
 }
+
+void Date::setDate(int month, int day, int year) {
+	if (evaluateValidDate()) {
+		this->month = month;
+		this->day = day;
+		this->year = year;
+	}
+	else {
+		throw invalid_argument("Seteaste una fecha mal padrino");
+	}
+}
+
+
 
 int Date::getDay() {
 	return day;
 }
 
 void Date::displayDate() {
-	cout << month << " / " << day << " / " << year;
+	cout << month << " /  " << day << " / " << year << endl;
 }
 
 bool Date::determineLeapYear() {
@@ -48,7 +62,7 @@ bool Date::determineLeapYear() {
 	return false;
 }
 
-bool Date::evaluateMonth() {
+bool Date::evaluateEndOfMonth() {
 	if (month == 4 || month == 6 || month == 9 || month == 11) {
 		if (day == 30) {
 			return true;
@@ -87,7 +101,7 @@ bool Date::evaluateMonth() {
 	}
 }
 
-bool Date::evaluateYear() {
+bool Date::evaluateEndOfYear() {
 	if (month == 12 && day == 31) {	//mientras no sea el último mes, ese le toca a evaluate year
 		return true;
 	}

@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <stdexcept>
 using namespace std;
 
 class Date {
@@ -11,11 +12,11 @@ public:
 	Date(int inMonth, int inDay, int inYear) : month(inMonth), day(inDay), year(inYear) {}
 
 	Date& operator ++() {
-		if (evaluateMonth()) {
+		if (evaluateEndOfMonth()) {
 			++month;
 			day = 01;
 		}
-		else if (evaluateYear()) {
+		else if (evaluateEndOfYear()) {
 			++year;
 			month = 01;
 			day = 01;
@@ -32,9 +33,10 @@ public:
 	}
 
 	bool evaluateValidDate();
+	void setDate(int month, int day, int year);
 	int getDay();
 	void displayDate();
-	bool evaluateMonth();
+	bool evaluateEndOfMonth();
 	bool determineLeapYear();
-	bool evaluateYear();
+	bool evaluateEndOfYear();
 };
