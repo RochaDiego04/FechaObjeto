@@ -7,6 +7,7 @@ using namespace std;
 class Menu {
 public:
 	int option;
+	Date fechita;
 
 	Menu();
 	void run();

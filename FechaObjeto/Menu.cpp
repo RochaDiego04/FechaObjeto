@@ -35,8 +35,7 @@ void Menu::executeOption() {
 	switch (option) {
 	case 1:	break;
 	case 2: 
-		Date fechita(1, 1, 1);
-		++fechita;
+		--fechita;
 		fechita.displayDate();
 		system("pause");
 		break;
