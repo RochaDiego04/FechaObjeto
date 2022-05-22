@@ -10,9 +10,10 @@ private:
 	int day;
 	int month;
 	int year;
+	int format;
 	string dateInString;
 public:
-	Date(int inMonth, int inDay, int inYear) : month(inMonth), day(inDay), year(inYear) {}
+	Date(int inMonth, int inDay, int inYear) : month(inMonth), day(inDay), year(inYear){}
 	Date();
 
 	Date& operator ++() {
@@ -49,11 +50,24 @@ public:
 	}
 
 	operator const char* () {
-		ostringstream formattedDate;
-		formattedDate << month << " / " << day << " / " << year;
-		dateInString = formattedDate.str();
-		return dateInString.c_str();
-
+		if (format == 1) {
+			ostringstream formattedDate;
+			formattedDate << month << " / " << day << " / " << year;
+			dateInString = formattedDate.str();
+			return dateInString.c_str();
+		}
+		else if (format == 2) {
+			ostringstream formattedDate;
+			formattedDate << day << " / " << month << " / " << year;
+			dateInString = formattedDate.str();
+			return dateInString.c_str();
+		}
+		else { //format = 3
+			ostringstream formattedDate;
+			formattedDate << year << " / " << month << " / " << day;
+			dateInString = formattedDate.str();
+			return dateInString.c_str();
+		}
 	}
 
 	void setDay(int day);
@@ -77,4 +91,5 @@ public:
 	int evaluateEndOfMonthForDecrement();
 	int evaluateEndOfYearForDecrement();
 	void getActualDate();
+	int evaluateFormat();
 };

@@ -37,12 +37,10 @@ void Menu::executeOption() {
 	system("cls");
 	switch (option) {
 	case 1:	
-		//askForDateFormat();
-		//setDateFormat();
-		//fechita.getActualDate();
-		//if (fechita.evaluateValidDate()) { //si la fecha es valida
-		//	printDateLoop(format);		   //se llama al printloop
-		//}
+		askForDateFormat();
+		setDateFormat();
+		fechita.getActualDate();
+		printDateLoop(format);
 		break;
 	case 2:
 		askForDateFormat();
@@ -69,7 +67,8 @@ void Menu::showOptionsToChangeDate() {
 
 void Menu::askForDateFormat() {
 	cout << "1. To set a default date (month, day, year)" << endl;
-	//cout << "2." << endl;
+	cout << "2. To set a date (day, month, year)" << endl;
+	cout << "3. To set a date (year, month, day)" << endl;
 }
 
 void Menu::setDateFormat() {

@@ -1,3 +1,4 @@
+#pragma warning(disable : 4996)
 #include "Date.h"
 //30 dias 4, 6, 9, 11
 //31 dias 1, 3, 5, 6, 7, 8, 10, 12
@@ -6,6 +7,7 @@ Date::Date() {
 	day = 1;
 	month = 1;
 	year = 2024;
+	format = 0;
 }
 
 /*--------------------------------Setters y Getters------------------------------*/
@@ -139,8 +141,11 @@ bool Date::evaluateValidYear() {
 void Date::displayDate(Date fechita, int format) {
 	switch (format) {
 	case 1:		cout << fechita;	break;//fechita converted into string
+	case 2:		cout << fechita;	break;//fechita converted into string
+	case 3:		cout << fechita;	break;//fechita converted into string
 	}
 }
+
 
 bool Date::determineLeapYear() {
 	if ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0)) {
@@ -246,9 +251,9 @@ int Date::evaluateEndOfYearForDecrement() {
 }
 
 void Date::getActualDate() {
-	/*time_t t = time(0);
+	time_t t = time(0);
 	tm* now = localtime(&t);
 	year = (now->tm_year + 1900);
 	month = (now->tm_mon + 1);
-	day = (now->tm_wday);*/
+	day = (now->tm_mday);
 }
