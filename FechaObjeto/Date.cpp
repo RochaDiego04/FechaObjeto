@@ -10,7 +10,12 @@ Date::Date() {
 
 /*--------------------------------Setters y Getters------------------------------*/
 void Date::setDay(int day) {
-	this->day = day;
+	if (evaluateValidDay()) {
+		this->day = day;
+	}
+	else {
+		throw invalid_argument("El dia esta mal padrino");
+	}
 }
 
 int Date::getDay() {
@@ -18,7 +23,12 @@ int Date::getDay() {
 }
 
 void Date::setMonth(int month) {
-	this->month = month;
+	if (evaluateValidMonth()) {
+		this->month = month;
+	}
+	else {
+		throw invalid_argument("El mes esta mal padrino");
+	}
 }
 
 int Date::getMonth() {
@@ -26,7 +36,12 @@ int Date::getMonth() {
 }
 
 void Date::setYear(int year) {
-	this->year = year;
+	if (evaluateValidYear()) {
+		this->year = year;
+	}
+	else {
+		throw invalid_argument("El year esta mal padrino (1 a 5000 se puede)");
+	}
 }
 
 int Date::getYear() {
@@ -36,9 +51,9 @@ int Date::getYear() {
 
 void Date::askForDate() {
 	cout << "What's the Date you wanna start with?" << endl;
-	cout << "Month: "; cin >> month;
-	cout << "Day: "; cin >> day;
-	cout << "Year: "; cin >> year;
+	cout << "Month: "; cin >> month; setMonth(month);
+	cout << "Day: "; cin >> day;	setDay(day);
+	cout << "Year: "; cin >> year;	setYear(year);
 }
 
 
@@ -73,25 +88,57 @@ bool Date::evaluateValidDate() {
 	}
 	return false;
 }
-/*
-void Date::setDate(int month, int day, int year) {
-	if (evaluateValidDate()) {
-		this->month = month;
-		this->day = day;
-		this->year = year;
+
+bool Date::evaluateValidDay() {
+	if (month == 4 || month == 6 || month == 9 || month == 11) {
+		if (day >= 1 && day <= 30) {
+			return true;
+		}
+	}
+
+	else if (month == 2) {
+		if (determineLeapYear()) { //si el año es bisiesto
+			if (day >= 1 && day <= 29) {
+				return true;
+			}
+		}
+		else {
+			if (day >= 1 && day <= 28) { //si no es bisiesto, evalua entre 1 y 28 dias
+				return true;
+			}
+		}
+	}
+
+	else {	//month 1 3, 5, 7, 10, 12
+		if (day >= 1 && day <= 31) {
+			return true;
+		}
+	}
+	return false;
+}
+
+bool Date::evaluateValidMonth() {
+	if (month >= 1 && month <= 12) {
+		return true;
 	}
 	else {
-		throw invalid_argument("Seteaste una fecha mal padrino");
+		return false;
 	}
-}*/
+}
+
+bool Date::evaluateValidYear() {
+	if (year >= 1 && year <= 5000) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
 
 
 void Date::displayDate(Date fechita, int format) {
-	if (format == 1) {
-		cout << fechita; //fechita converted into string
-	}
-	else {	//formato 2: numeros enteros
-
+	switch (format) {
+	case 1:		cout << fechita;	break;//fechita converted into string
 	}
 }
 
@@ -196,4 +243,12 @@ int Date::evaluateEndOfYearForDecrement() {
 	else {
 		return false;
 	}
+}
+
+void Date::getActualDate() {
+	/*time_t t = time(0);
+	tm* now = localtime(&t);
+	year = (now->tm_year + 1900);
+	month = (now->tm_mon + 1);
+	day = (now->tm_wday);*/
 }

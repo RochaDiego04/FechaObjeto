@@ -2,6 +2,7 @@
 #include <iostream>
 #include <sstream>
 #include <stdexcept>
+#include <ctime>
 using namespace std;
 
 class Date {
@@ -50,9 +51,9 @@ public:
 	operator const char* () {
 		ostringstream formattedDate;
 		formattedDate << month << " / " << day << " / " << year;
-
 		dateInString = formattedDate.str();
 		return dateInString.c_str();
+
 	}
 
 	void setDay(int day);
@@ -65,6 +66,9 @@ public:
 	void askForDate();
 
 	bool evaluateValidDate();
+	bool evaluateValidDay();
+	bool evaluateValidMonth();
+	bool evaluateValidYear();
 	void setDate(int month, int day, int year);
 	void displayDate(Date fechita, int format);
 	bool determineLeapYear();
@@ -72,4 +76,5 @@ public:
 	bool evaluateEndOfYearForIncrement();
 	int evaluateEndOfMonthForDecrement();
 	int evaluateEndOfYearForDecrement();
+	void getActualDate();
 };
