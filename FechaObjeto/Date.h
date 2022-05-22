@@ -41,7 +41,7 @@ public:
 		}
 		else {
 			--day;
-		} 
+		}
 		return *this;
 		/*
 		if (evaluateEndOfMonthForDecrement() ) {
@@ -67,10 +67,11 @@ public:
 	void setYear(int year);
 	int getYear();
 
+	void askForDate();
 
 	bool evaluateValidDate();
 	void setDate(int month, int day, int year);
-	void displayDate();
+	void displayDate(Date fechita, int format);
 	bool determineLeapYear();
 	bool evaluateEndOfMonthForIncrement();
 	bool evaluateEndOfYearForIncrement();

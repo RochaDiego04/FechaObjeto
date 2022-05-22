@@ -2,8 +2,48 @@
 //30 dias 4, 6, 9, 11
 //31 dias 1, 3, 5, 6, 7, 8, 10, 12
 
+Date::Date() {
+	day = 1;
+	month = 1;
+	year = 2024;
+}
+
+/*--------------------------------Setters y Getters------------------------------*/
+void Date::setDay(int day) {
+	this->day = day;
+}
+
+int Date::getDay() {
+	return day;
+}
+
+void Date::setMonth(int month) {
+	this->month = month;
+}
+
+int Date::getMonth() {
+	return month;
+}
+
+void Date::setYear(int year) {
+	this->year = year;
+}
+
+int Date::getYear() {
+	return year;
+}
+/*-------------------------------------------------------------------------------*/
+
+void Date::askForDate() {
+	cout << "What's the Date you wanna start with?" << endl;
+	cout << "Month: "; cin >> month;
+	cout << "Day: "; cin >> day;
+	cout << "Year: "; cin >> year;
+}
+
+
 bool Date::evaluateValidDate() {
-	if ((month >= 1 && month <= 12) && (year >=1 && year <= 5000)) {
+	if ((month >= 1 && month <= 12) && (year >= 1 && year <= 5000)) {
 
 		if (month == 4 || month == 6 || month == 9 || month == 11) {
 			if (day >= 1 && day <= 30) {
@@ -45,40 +85,14 @@ void Date::setDate(int month, int day, int year) {
 	}
 }*/
 
-Date::Date() {
-	day = 1;
-	month = 1;
-	year = 2024;
-}
 
-/*--------------------------------Setters y Getters------------------------------*/
-void Date::setDay(int day) {
-	this->day = day;
-}
+void Date::displayDate(Date fechita, int format) {
+	if (format == 1) {
+		cout << month << " /  " << day << " / " << year << endl;
+	}
+	else {	//formato 2: numeros enteros
 
-int Date::getDay() {
-	return day;
-}
-
-void Date::setMonth(int month) {
-	this->month = month;
-}
-
-int Date::getMonth() {
-	return month;
-}
-
-void Date::setYear(int year) {
-	this->year = year;
-}
-
-int Date::getYear() {
-	return year;
-}
-/*-------------------------------------------------------------------------------*/
-
-void Date::displayDate() {
-	cout << month << " /  " << day << " / " << year << endl;
+	}
 }
 
 bool Date::determineLeapYear() {
@@ -137,7 +151,7 @@ bool Date::evaluateEndOfYearForIncrement() {
 }
 
 int Date::evaluateEndOfMonthForDecrement() {
-	if (month == 4 || month == 6 || month == 9 || month == 11) {
+	if (month == 2 || month == 4 || month == 6 || month == 9 || month == 11) {
 		if (day == 1) {
 			return 1;
 		}

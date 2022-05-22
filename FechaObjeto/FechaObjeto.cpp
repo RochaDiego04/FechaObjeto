@@ -4,7 +4,7 @@
 using namespace std;
 
 
-int main(){
+int main() {
 	Menu menu;
 	menu.run();
 	/*Date a(1, 1, 1);
