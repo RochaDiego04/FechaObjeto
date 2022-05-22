@@ -88,7 +88,7 @@ void Date::setDate(int month, int day, int year) {
 
 void Date::displayDate(Date fechita, int format) {
 	if (format == 1) {
-		cout << month << " /  " << day << " / " << year << endl;
+		cout << fechita; //fechita converted into string
 	}
 	else {	//formato 2: numeros enteros
 

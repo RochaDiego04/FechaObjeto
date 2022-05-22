@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <sstream>
 #include <stdexcept>
 using namespace std;
 
@@ -8,6 +9,7 @@ private:
 	int day;
 	int month;
 	int year;
+	string dateInString;
 public:
 	Date(int inMonth, int inDay, int inYear) : month(inMonth), day(inDay), year(inYear) {}
 	Date();
@@ -43,21 +45,14 @@ public:
 			--day;
 		}
 		return *this;
-		/*
-		if (evaluateEndOfMonthForDecrement() ) {
-			--month;
-			day = 31;
-		}
-		else if (evaluateEndOfYearForIncrement()) {
-			--year;
-			month = 12;
-			day = 31;
-		}
-		else {
-			--day;
-		}
-		*/
+	}
 
+	operator const char* () {
+		ostringstream formattedDate;
+		formattedDate << month << " / " << day << " / " << year;
+
+		dateInString = formattedDate.str();
+		return dateInString.c_str();
 	}
 
 	void setDay(int day);
