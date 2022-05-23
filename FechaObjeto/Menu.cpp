@@ -73,13 +73,21 @@ void Menu::askForDateFormat() {
 
 void Menu::setDateFormat() {
 	cin >> format;
+	if (format > 3 || format < 1) {
+		cout << "Write a valid format" << endl;
+		system("pause");
+		system("cls");
+		askForDateFormat();
+		setDateFormat();
+	}
 	system("cls");
 }
 
 void Menu::printDateLoop(int format) {
 	while (return_) {
 		system("cls");
-		fechita.displayDate(fechita, format);
+		fechita.setOpcion(format);
+		fechita.displayDate(fechita);
 		showOptionsToChangeDate();
 		setOptionOfSubMenu();
 		evaluateSubMenuOption();

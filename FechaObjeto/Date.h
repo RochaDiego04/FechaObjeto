@@ -10,10 +10,10 @@ private:
 	int day;
 	int month;
 	int year;
-	int format;
+	int opcion;
 	string dateInString;
 public:
-	Date(int inMonth, int inDay, int inYear) : month(inMonth), day(inDay), year(inYear){}
+	Date(int inMonth, int inDay, int inYear) : month(inMonth), day(inDay), year(inYear) {}
 	Date();
 
 	Date& operator ++() {
@@ -50,13 +50,13 @@ public:
 	}
 
 	operator const char* () {
-		if (format == 1) {
+		if (opcion == 1) {
 			ostringstream formattedDate;
 			formattedDate << month << " / " << day << " / " << year;
 			dateInString = formattedDate.str();
 			return dateInString.c_str();
 		}
-		else if (format == 2) {
+		else if (opcion == 2) {
 			ostringstream formattedDate;
 			formattedDate << day << " / " << month << " / " << year;
 			dateInString = formattedDate.str();
@@ -76,6 +76,8 @@ public:
 	int getMonth();
 	void setYear(int year);
 	int getYear();
+	void setOpcion(int opcion);
+
 
 	void askForDate();
 
@@ -83,8 +85,7 @@ public:
 	bool evaluateValidDay();
 	bool evaluateValidMonth();
 	bool evaluateValidYear();
-	void setDate(int month, int day, int year);
-	void displayDate(Date fechita, int format);
+	void displayDate(Date fechita);
 	bool determineLeapYear();
 	bool evaluateEndOfMonthForIncrement();
 	bool evaluateEndOfYearForIncrement();

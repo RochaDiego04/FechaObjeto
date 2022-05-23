@@ -7,7 +7,6 @@ Date::Date() {
 	day = 1;
 	month = 1;
 	year = 2024;
-	format = 0;
 }
 
 /*--------------------------------Setters y Getters------------------------------*/
@@ -48,6 +47,10 @@ void Date::setYear(int year) {
 
 int Date::getYear() {
 	return year;
+}
+
+void Date::setOpcion(int opcion) {
+	this->opcion = opcion;
 }
 /*-------------------------------------------------------------------------------*/
 
@@ -138,12 +141,8 @@ bool Date::evaluateValidYear() {
 }
 
 
-void Date::displayDate(Date fechita, int format) {
-	switch (format) {
-	case 1:		cout << fechita;	break;//fechita converted into string
-	case 2:		cout << fechita;	break;//fechita converted into string
-	case 3:		cout << fechita;	break;//fechita converted into string
-	}
+void Date::displayDate(Date fechita) {
+	cout << fechita;	//Fechita convertido a string
 }
 
 
