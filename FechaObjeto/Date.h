@@ -10,7 +10,7 @@ private:
 	int day;
 	int month;
 	int year;
-	int opcion;
+	int option;
 	string dateInString;
 public:
 	Date(int inMonth, int inDay, int inYear) : month(inMonth), day(inDay), year(inYear) {}
@@ -50,13 +50,13 @@ public:
 	}
 
 	operator const char* () {
-		if (opcion == 1) {
+		if (option == 1) {
 			ostringstream formattedDate;
 			formattedDate << month << " / " << day << " / " << year;
 			dateInString = formattedDate.str();
 			return dateInString.c_str();
 		}
-		else if (opcion == 2) {
+		else if (option == 2) {
 			ostringstream formattedDate;
 			formattedDate << day << " / " << month << " / " << year;
 			dateInString = formattedDate.str();
@@ -76,7 +76,7 @@ public:
 	int getMonth();
 	void setYear(int year);
 	int getYear();
-	void setOpcion(int opcion);
+	void setOption(int option);
 
 
 	void askForDate();

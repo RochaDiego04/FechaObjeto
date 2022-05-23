@@ -86,7 +86,7 @@ void Menu::setDateFormat() {
 void Menu::printDateLoop(int format) {
 	while (return_) {
 		system("cls");
-		fechita.setOpcion(format);
+		fechita.setOption(format);
 		fechita.displayDate(fechita);
 		showOptionsToChangeDate();
 		setOptionOfSubMenu();

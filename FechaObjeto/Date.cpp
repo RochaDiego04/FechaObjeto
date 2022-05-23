@@ -49,8 +49,8 @@ int Date::getYear() {
 	return year;
 }
 
-void Date::setOpcion(int opcion) {
-	this->opcion = opcion;
+void Date::setOption(int option) {
+	this->option = option;
 }
 /*-------------------------------------------------------------------------------*/
 
@@ -61,7 +61,7 @@ void Date::askForDate() {
 	cout << "Year: "; cin >> year;	setYear(year);
 }
 
-
+/*
 bool Date::evaluateValidDate() {
 	if ((month >= 1 && month <= 12) && (year >= 1 && year <= 5000)) {
 
@@ -93,6 +93,7 @@ bool Date::evaluateValidDate() {
 	}
 	return false;
 }
+*/
 
 bool Date::evaluateValidDay() {
 	if (month == 4 || month == 6 || month == 9 || month == 11) {
