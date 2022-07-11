@@ -26,7 +26,7 @@ void Menu::showOptionsFromMenu() {
 void Menu::setOption() {
 	cout << "Your option-> ";
 	cin >> option;
-	if (option < 1 || option >5) {
+	if (option < 1 || option >3) {
 		cout << "Set an option from the menu" << endl;
 		setOption();
 	}

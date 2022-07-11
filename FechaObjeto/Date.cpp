@@ -1,7 +1,7 @@
 #pragma warning(disable : 4996)
 #include "Date.h"
 //30 dias 4, 6, 9, 11
-//31 dias 1, 3, 5, 6, 7, 8, 10, 12
+//31 dias 1, 3, 5, 7, 8, 10, 12
 
 Date::Date() {
 	day = 1;
@@ -203,7 +203,7 @@ bool Date::evaluateEndOfYearForIncrement() {
 }
 
 int Date::evaluateEndOfMonthForDecrement() {
-	if (month == 2 || month == 4 || month == 6 || month == 9 || month == 11) {
+	if (month == 2 || month == 4 || month == 6 || month == 8 || month == 9 || month == 11) {
 		if (day == 1) {
 			return 1;
 		}
